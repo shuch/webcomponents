@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  
+</head>
+<body>
+  <button>hello world</button>
+  <div id="host"></div>
+
+  <script>
+      var host = document.querySelector('button');
+      var root = host.createShadowRoot();
+      root.textContent = 'nihao';
+
+      // 
+      var shadow = document.querySelector('#host').createShadowRoot();
+      shadow.innerHTML = '<p>here is some new text</p>';
+      shadow.innerHTML += '<style>p { color: red }</style>';
+
+
+  </script>
+
+  <div id="tag">zhang san</div>
+  <template id="tagTemplate">
+    <style>
+      .outer {
+        border: 2px solid brown;
+      }
+    </style>
+
+    <div class="outer">
+      <div class="boi">
+        hi my name is
+      </div>
+      <div class="name">
+        bob
+      </div>
+    </div>
+  </template>
+  <script>
+    var shadow = document.querySelector('#tag').createShadowRoot();
+    var template = document.querySelector('#tagTemplate');
+    // shadow.appendChild(template.content.cloneNode(true));
+  </script>
+</body>
+</html>

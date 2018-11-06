@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function supportsImports() {
+      return 'import' in document.createElement('link');
+    }
+    console.log(supportsImports());
+  </script>
+
+  <script async>
+    function handleLoad(e) {
+      console.log('load import: ' + e.target.href);
+    }
+    function handleError(e) {
+      console.log('error loading import: ' + e.target.href);
+    }
+  </script>
+  <link rel="import" type="text/css" href="template.html" onload="handleLoad(event)" onerror="handleError(event)">
+</body>
+</html>
